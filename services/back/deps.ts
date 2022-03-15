@@ -1,0 +1,1 @@
+export { opine } from "https://deno.land/x/opine@2.1.2/mod.ts"

@@ -15,19 +15,11 @@ RUN apt-get update && apt-get install -y \
 ###  Install node v14 ###
 RUN curl -sL https://deb.nodesource.com/setup_14.x | bash - && apt -y install nodejs
 
-### Install deno ###
-RUN curl -fsSL https://deno.land/install.sh | sh
-ENV PATH="/root/.deno/bin:${PATH}"
-
 WORKDIR /workdir
 
-COPY ./back ./back
-COPY ./front ./front
-COPY ./bin/docker-entrypoint.sh /
+COPY . .
 
 ### Install node modules ###
-RUN cd ./front && npm i
+RUN npm i
 
-### Run back and front services ###
-ENTRYPOINT ["/docker-entrypoint.sh"]
-CMD ["DEV"]
+CMD ["npm", "run", "start", "--prefix", "/workdir/"]
