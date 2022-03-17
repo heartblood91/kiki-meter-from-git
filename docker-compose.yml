@@ -18,6 +18,8 @@ services:
     build:
       context: ./services/front
     container_name: "app"
+    volumes:
+      - ./services/front:/workdir
     ports:
       - '3000:3000'
     labels:
@@ -29,6 +31,8 @@ services:
     build:
       context: ./services/back
     container_name: "api"
+    volumes:
+      - ./services/back:/workdir
     ports:
       - '4000:4000'
     labels:
