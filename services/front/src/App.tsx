@@ -34,6 +34,15 @@ export default App
 const useApp = () => {
   const [is_dark_mode_enabled, setDarkModeIsEnabled] = React.useState<Boolean>(false)
 
+  React.useEffect(() => {
+    if (
+      window.matchMedia &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches
+    ) {
+      setDarkModeIsEnabled(true);
+    }
+  }, [])
+
   const theme_mode: PaletteMode = React.useMemo(() => {
     if (is_dark_mode_enabled) {
       return 'dark'
