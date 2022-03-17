@@ -1,1 +1,1 @@
-export { opine } from "https://deno.land/x/opine@2.1.2/mod.ts"
+export { serve } from "https://deno.land/std@0.130.0/http/server.ts"

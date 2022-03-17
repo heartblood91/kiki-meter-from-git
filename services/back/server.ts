@@ -1,14 +1,11 @@
-// deno-lint-ignore-file
-import { opine } from "./deps.ts"
+import { serve } from "./deps.ts"
+import { handler } from './router/index.ts'
+import { addQueries } from './routes/index.ts'
 
-const app = opine()
-
-app.get("/", (req, res) => {
-  res.send("Hello World")
+serve(handler, {
+  port: 4000,
 })
 
+addQueries()
 
-app.listen(
-  4000,
-  () => console.log("Backend has started on http://localhost:4000"),
-)
+console.log('The server run @ http://localhost:4000/')
