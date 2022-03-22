@@ -4,7 +4,7 @@ import Box from '@mui/material/Box'
 import AppBarWithDrawer from './AppBarWithDrawer'
 import {
   DrawerHeader,
-} from './MyDrawer'
+} from '../custom-mui'
 
 type Props = {
   children: React.ReactElement,

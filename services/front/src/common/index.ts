@@ -1,1 +1,5 @@
-export { default as NavigationAndHeader } from './NavigationAndHeader'
+import { NavigationAndHeader } from './navigation'
+
+export {
+  NavigationAndHeader,
+}
