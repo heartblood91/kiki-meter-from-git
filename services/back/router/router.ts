@@ -13,7 +13,7 @@ type RouterPrivateType = {
 type SetQueryType = (pathname: string, handler: HandleType ) => void
 type GetQueryType = (pathname: string ) => HandleType | undefined
 
-type HandleType = (req: Request) => Response
+type HandleType = (req: Request) => Promise<Response>
 
 const router = {} as RouterPrivateType
 
