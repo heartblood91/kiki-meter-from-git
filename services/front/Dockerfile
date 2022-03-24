@@ -15,6 +15,9 @@ RUN apt-get update && apt-get install -y \
 ###  Install node v14 ###
 RUN curl -sL https://deb.nodesource.com/setup_14.x | bash - && apt -y install nodejs
 
+### Clean unusual package ###
+RUN apt autoremove -y
+
 WORKDIR /workdir
 
 COPY . .
