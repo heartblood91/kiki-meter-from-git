@@ -39,3 +39,9 @@ services:
       - "traefik.enable=true"
       - "traefik.http.routers.api.rule=Host(`api.localhost`)"
       - "traefik.http.routers.api.entrypoints=web"
+    secrets:
+      - git_ssh_key
+
+secrets:
+  git_ssh_key:
+    file: ~/.ssh/kikimeter/id_git
