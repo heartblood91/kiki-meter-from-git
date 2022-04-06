@@ -9,6 +9,7 @@ import {
 } from '../common'
 
 import {
+  Administration,
   LogodenBiniou,
 } from '../views'
 
@@ -26,7 +27,7 @@ const MainRouter = ({
     <NavigationAndHeader setDarkModeIsEnabled={setDarkModeIsEnabled} is_dark_mode_enabled={is_dark_mode_enabled}>
       <Routes>
         <Route path='/' element={<LogodenBiniou />} />
-        <Route path='/administration' element={<LogodenBiniou />} />
+        <Route path='/administration' element={<Administration />} />
       </Routes>
     </NavigationAndHeader>
   )
