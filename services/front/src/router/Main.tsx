@@ -10,7 +10,7 @@ import {
 
 import {
   Administration,
-  LogodenBiniou,
+  Graphs,
 } from '../views'
 
 type Props = {
@@ -26,7 +26,7 @@ const MainRouter = ({
   return (
     <NavigationAndHeader setDarkModeIsEnabled={setDarkModeIsEnabled} is_dark_mode_enabled={is_dark_mode_enabled}>
       <Routes>
-        <Route path='/' element={<LogodenBiniou />} />
+        <Route path='/' element={<Graphs />} />
         <Route path='/administration' element={<Administration />} />
       </Routes>
     </NavigationAndHeader>
