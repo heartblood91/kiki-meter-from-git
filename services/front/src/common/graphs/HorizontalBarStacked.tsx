@@ -14,11 +14,13 @@ Chart.register(...(registerables ?? []))
 type Props = {
   data: ChartData<"bar", number[], String>,
   chart_title: string,
+  in_percent?: boolean,
 }
 
 const HorizontalBarStacked = ({
   data,
   chart_title,
+  in_percent = false,
 }: Props) => {
   const theme = useTheme()
   const ref = React.useRef<null | HTMLCanvasElement>(null)
@@ -30,6 +32,17 @@ const HorizontalBarStacked = ({
       return 'black'
     }
   }, [theme.palette.mode])
+
+  const options_for_percent_data = React.useMemo(() => {
+    if (in_percent) {
+      return {
+        min: 0,
+        max: 100,
+      }
+    } else {
+      return {}
+    }
+  }, [in_percent])
 
   React.useEffect(() => {
     if (ref.current) {
@@ -58,6 +71,7 @@ const HorizontalBarStacked = ({
             },
             y: {
               stacked: true,
+              ...options_for_percent_data,
               ticks: {
                 color,
               },
@@ -76,6 +90,7 @@ const HorizontalBarStacked = ({
     ref,
     data,
     color,
+    options_for_percent_data,
   ])
 
   return (
