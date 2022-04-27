@@ -13,10 +13,11 @@ const exec: ExecType = async ({
     stderr: "piped",
   })
   
-  const { success } = await process.status()
-
-  const raw_output = await process.output()
-  const raw_error = await process.stderrOutput()
+  const [{success}, raw_output, raw_error] = await Promise.all([
+    process.status(),
+    process.output(),
+    process.stderrOutput()
+  ])
 
   const array_of_outputs = new TextDecoder().decode(raw_output)?.split('\n')?.filter(a => a !== '') ?? []
   const array_of_errors = new TextDecoder().decode(raw_error)?.split('\n')?.filter(a => a !== '') ?? []
